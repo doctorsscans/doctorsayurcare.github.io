@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctors Ayurcare – Ayurvedic Therapies &amp; Postpartum Care</title>
+  <meta name="description" content="Doctors Ayurcare – classical Ayurvedic therapies (Abhyangam, Kizhi, Nasya) for everyday wellness, with specialised Prasava Raksha postpartum recovery programs for new mothers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-dark:   #1a4a2e;
+  --green:        #2d7a4f;
+  --green-mid:    #3a9460;
+  --green-light:  #e8f5ee;
+  --gold:         #c9930a;
+  --gold-light:   #f5e6b8;
+  --cream:        #fdf8ef;
+  --text-dark:    #1c2b20;
+  --text-mid:     #4a5e52;
+  --text-light:   #7a8f81;
+  --white:        #ffffff;
+  --bg-light:     #f7faf8;
+  --radius:       12px;
+  --radius-lg:    20px;
+  --shadow:       0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:    0 10px 40px rgba(0,0,0,0.12);
+  --ease-fluid:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-oil:     cubic-bezier(0.16, 1, 0.3, 1);
+  --transition:   0.4s var(--ease-fluid);
+  --font-head:    'Playfair Display', Georgia, serif;
+  --font-body:    'Poppins', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ===== FLUID / OIL-FLOW LAYER ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--green-mid) 45%, var(--gold-light) 100%);
+  background-size: 220% 100%;
+  animation: oilFlowShimmer 4s linear infinite;
+  z-index: 1200;
+  pointer-events: none;
+  box-shadow: 0 0 12px rgba(201,147,10,0.5);
+}
+@keyframes oilFlowShimmer { 0% { background-position: 0% 50%; } 100% { background-position: 220% 50%; } }
+
+.oil-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, rgba(245,230,184,0.9), rgba(201,147,10,0.55) 55%, rgba(45,122,79,0.25) 80%, transparent 82%);
+  filter: blur(1px);
+  pointer-events: none;
+  z-index: 900;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+.oil-cursor.active { opacity: 0.85; }
+
+.wave-divider {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+  margin-top: -1px;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 64px;
+  transform-origin: bottom center;
+  animation: waveBreathe 8s var(--ease-fluid) infinite alternate;
+}
+.wave-divider.wd-lg svg { height: 92px; }
+@keyframes waveBreathe {
+  0%   { transform: scaleY(1) translateY(0); }
+  100% { transform: scaleY(1.08) translateY(-2px); }
+}
+
+.oil-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 28%, rgba(245,230,184,0.55), rgba(201,147,10,0.28) 45%, rgba(45,122,79,0.12) 72%, transparent 78%);
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+  animation: float 9s var(--ease-fluid) infinite alternate;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+    .hero { background-attachment: fixed; }
+  }
+}
+
+img { max-width: 100%; display: block; }
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+section[id] { scroll-margin-top: 5.5rem; }
+
+.section  { padding: 5rem 0; }
+.bg-light { background: var(--bg-light); }
+.bg-cream { background: var(--cream); }
+.bg-green { background: var(--green-dark); color: var(--white); }
+.mt-1     { margin-top: 1rem; }
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.25; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); font-weight: 600; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+h4 { font-size: 1rem; font-weight: 600; }
+
+.accent       { color: var(--gold); }
+.accent-light { color: var(--gold-light); }
+
+.section-label {
+  display: inline-block;
+  background: var(--gold-light);
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+.bg-green .section-label { background: rgba(255,255,255,0.15); color: var(--gold-light); }
+
+.section-header { text-align: center; max-width: 650px; margin: 0 auto 3.5rem; }
+.section-header h2 { margin-bottom: 1rem; }
+.section-desc { color: var(--text-mid); font-size: 1rem; }
+.section-header.light h2 { color: var(--white); }
+.section-header.light .section-desc { color: rgba(255,255,255,0.75); }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--green); color: var(--white); border-color: var(--green); }
+.btn-primary:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45,122,79,0.35);
+}
+.btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-green { background: transparent; color: var(--green); border-color: var(--green); }
+.btn-outline-green:hover { background: var(--green); color: var(--white); }
+.btn-sm   { padding: 0.55rem 1.4rem; font-size: 0.82rem; }
+.btn-full { width: 100%; }
+
+/* ===== TOP BAR ===== */
+.topbar {
+  background: var(--green-dark);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.78rem;
+  padding: 0.5rem 0;
+}
+.topbar-inner { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: center; }
+.topbar a:hover { color: var(--gold-light); }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: var(--transition);
+}
+.navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.nav-inner { display: flex; align-items: center; gap: 1.5rem; padding-top: 0.9rem; padding-bottom: 0.9rem; }
+.logo { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+.logo-mark {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; flex-shrink: 0;
+}
+.logo-text { display: flex; flex-direction: column; }
+.logo-main { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; color: var(--green-dark); line-height: 1.2; }
+.logo-sub  { font-size: 0.65rem; font-weight: 500; color: var(--text-light); letter-spacing: 0.05em; text-transform: uppercase; }
+
+.nav-links { display: flex; gap: 0.25rem; align-items: center; margin-left: auto; }
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+.nav-links a:hover, .nav-links a.active { color: var(--green); background: var(--green-light); }
+.nav-cta { margin-left: 0.5rem; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+  z-index: 1001;
+}
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--green-dark); border-radius: 2px; transition: var(--transition); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(26,74,46,0.90) 0%, rgba(45,122,79,0.75) 100%),
+    url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600&q=80') center/cover no-repeat;
+  color: var(--white);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(201,147,10,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 700px; padding: 5rem 1.5rem; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50px;
+  padding: 0.45rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.06em;
+}
+.hero h1 { margin-bottom: 1.25rem; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.88); margin-bottom: 2rem; max-width: 540px; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.75rem;
+  width: fit-content;
+}
+.stat { text-align: center; padding: 0 1rem; }
+.stat strong { display: block; font-size: 1.6rem; font-family: var(--font-head); font-weight: 700; color: var(--gold-light); }
+.stat span   { font-size: 0.72rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; }
+.stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.25); }
+.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); }
+.scroll-dot { display: block; width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.6); animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+/* ===== MARQUEE ===== */
+.marquee-strip { background: var(--gold); overflow: hidden; padding: 0.75rem 0; }
+.marquee-track { display: flex; gap: 3rem; width: max-content; animation: marquee 32s linear infinite; }
+.marquee-track span { font-size: 0.85rem; font-weight: 600; color: var(--white); white-space: nowrap; letter-spacing: 0.04em; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ===== ABOUT ===== */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-image-wrap { position: relative; padding: 1rem; }
+.about-img-main { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.about-img-main img { width: 100%; height: 480px; object-fit: cover; transition: transform 0.5s ease; }
+.about-img-main:hover img { transform: scale(1.03); }
+.about-img-badge {
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  background: var(--green);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.badge-num { display: block; font-size: 2rem; font-family: var(--font-head); font-weight: 700; line-height: 1; }
+.badge-txt { display: block; font-size: 0.72rem; font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.08em; }
+.about-leaf { position: absolute; font-size: 1.5rem; animation: float 4s ease-in-out infinite; }
+.about-leaf-1 { top: 5%; left: 5%; animation-delay: 0s; }
+.about-leaf-2 { bottom: 15%; left: -2%; animation-delay: 1.5s; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(8deg); } }
+
+.about-content p { color: var(--text-mid); margin-bottom: 1rem; }
+.about-features  { margin: 1.75rem 0; display: flex; flex-direction: column; gap: 1rem; }
+.feature-item    { display: flex; gap: 1rem; align-items: flex-start; }
+.feature-icon {
+  font-size: 1.5rem;
+  background: var(--green-light);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-item strong { display: block; margin-bottom: 0.2rem; color: var(--green-dark); font-size: 0.95rem; }
+.feature-item p { font-size: 0.85rem; margin: 0; }
+
+/* ===== SERVICES ===== */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; }
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(45,122,79,0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--green-light) 0%, transparent 60%);
+  opacity: 0;
+  transition: var(--transition);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.service-card:hover::before { opacity: 1; }
+.service-body { padding: 2rem 2rem 1.5rem; position: relative; flex: 1; }
+.service-icon { font-size: 2.5rem; margin-bottom: 1.25rem; display: block; }
+.service-card h3 { margin-bottom: 0.75rem; color: var(--green-dark); }
+.service-card p  { color: var(--text-mid); font-size: 0.9rem; }
+.service-foot {
+  position: relative;
+  padding: 0.9rem 2rem;
+  border-top: 1px solid rgba(45,122,79,0.1);
+  background: rgba(247,250,248,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.service-duration { font-size: 0.8rem; color: var(--text-light); }
+.card-link { font-size: 0.88rem; font-weight: 600; color: var(--green); transition: var(--transition); }
+.card-link:hover { color: var(--gold); }
+
+/* ===== FEATURED PROGRAM (PRASAVA RAKSHA) ===== */
+.featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.featured-visual { position: relative; }
+.featured-img {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 500px;
+  background: linear-gradient(160deg, var(--green-dark), var(--green-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+.featured-img span { font-size: 8rem; opacity: 0.35; }
+.featured-tag {
+  position: absolute;
+  top: 1.75rem;
+  right: -0.75rem;
+  background: var(--gold);
+  color: var(--white);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px 0 0 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.featured-badge {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.25rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.featured-badge .badge-icon {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.featured-badge strong { display: block; color: var(--green-dark); font-size: 0.95rem; }
+.featured-badge span.badge-sub { color: var(--text-light); font-size: 0.78rem; }
+
+.featured-list { margin: 2rem 0; display: flex; flex-direction: column; gap: 1.15rem; }
+.featured-item { display: flex; gap: 1rem; align-items: flex-start; }
+.featured-dot {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.05rem; flex-shrink: 0;
+}
+.featured-item strong { display: block; color: var(--green-dark); font-size: 0.95rem; margin-bottom: 0.15rem; }
+.featured-item p { color: var(--text-mid); font-size: 0.86rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.75rem; }
+.chip {
+  background: var(--green);
+  color: var(--white);
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ===== WHY US ===== */
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+.why-item {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid var(--green-light);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.why-item:hover { border-color: var(--green); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.why-icon {
+  width: 56px; height: 56px; border-radius: var(--radius);
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; margin-bottom: 1rem;
+}
+.why-item h3 { margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--green-dark); }
+.why-item p  { font-size: 0.88rem; color: var(--text-mid); }
+
+/* ===== CONDITIONS ===== */
+.treatments-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; }
+.treatment-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+.treatment-card:hover {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.treatment-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.treatment-card h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+.treatment-card p  { font-size: 0.78rem; color: var(--text-light); transition: var(--transition); }
+.treatment-card:hover p { color: rgba(255,255,255,0.85); }
+
+/* ===== DOCTOR ===== */
+.doctor-feature {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 0;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--green-light);
+  max-width: 950px;
+  margin: 0 auto;
+}
+.doctor-img { position: relative; min-height: 400px; overflow: hidden; }
+.doctor-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.doctor-feature:hover .doctor-img img { transform: scale(1.04); }
+.doctor-info { padding: 2.5rem; }
+.doctor-info h3 { font-size: 1.6rem; color: var(--green-dark); margin-bottom: 0.3rem; }
+.doctor-title { font-size: 0.82rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+.doctor-spec  { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.1rem; }
+.doctor-desc  { font-size: 0.92rem; color: var(--text-mid); margin-bottom: 1.5rem; }
+.doctor-points { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.75rem; }
+.doctor-points li { display: flex; gap: 0.65rem; align-items: flex-start; font-size: 0.88rem; color: var(--text-mid); }
+.doctor-points .tick {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--green-light); color: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; flex-shrink: 0; margin-top: 0.2rem;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
+.testimonial-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition);
+}
+.testimonial-card:hover { background: rgba(255,255,255,0.16); transform: translateY(-4px); }
+.stars { color: var(--gold-light); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+.testimonial-card p { color: rgba(255,255,255,0.9); font-size: 0.92rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.7; }
+.testimonial-author { display: flex; align-items: center; gap: 1rem; }
+.author-avatar {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--gold); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+}
+.testimonial-author strong { display: block; font-size: 0.92rem; }
+.testimonial-author span   { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+
+/* ===== CONTACT ===== */
+.contact-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: start; }
+.contact-form-wrap { background: var(--white); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow); }
+.form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem; }
+.form-group label { font-size: 0.84rem; font-weight: 600; color: var(--text-dark); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #d9e8de;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--text-dark);
+  transition: var(--transition);
+  outline: none;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(45,122,79,0.12); }
+.form-note { text-align: center; font-size: 0.78rem; color: var(--text-light); margin-top: 0.75rem; }
+.form-success { text-align: center; padding: 2.5rem 1.5rem; }
+.success-icon { font-size: 3rem; margin-bottom: 1rem; }
+.form-success h3 { color: var(--green-dark); margin-bottom: 0.5rem; }
+.form-success p  { color: var(--text-mid); font-size: 0.92rem; }
+
+.info-card { background: var(--white); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
+.info-card h3 { color: var(--green-dark); margin-bottom: 1.5rem; font-size: 1.2rem; }
+.info-item { display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start; }
+.info-item:last-child { margin-bottom: 0; }
+.info-icon {
+  font-size: 1.2rem; flex-shrink: 0;
+  width: 38px; height: 38px;
+  background: var(--green-light);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.info-item strong { display: block; font-size: 0.85rem; margin-bottom: 0.2rem; color: var(--green-dark); }
+.info-item p { font-size: 0.85rem; color: var(--text-mid); }
+.info-item a { color: var(--text-mid); transition: var(--transition); }
+.info-item a:hover { color: var(--green); }
+
+.callout {
+  background: var(--green-dark);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+.callout h4 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.callout p { font-size: 0.86rem; color: rgba(255,255,255,0.75); margin-bottom: 1.25rem; }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--green-dark); color: rgba(255,255,255,0.8); }
+.footer-top { padding: 4rem 0 3rem; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; }
+.footer-brand .logo-main { color: var(--white); }
+.footer-brand .logo-sub  { color: rgba(255,255,255,0.5); }
+.footer-brand p { font-size: 0.87rem; color: rgba(255,255,255,0.65); margin-top: 1rem; margin-bottom: 1.5rem; max-width: 300px; }
+.social-links { display: flex; gap: 0.6rem; }
+.social-links a {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; color: var(--white);
+  transition: var(--transition); text-transform: uppercase;
+}
+.social-links a:hover { background: var(--gold); }
+.footer-col h4 { font-family: var(--font-head); font-size: 1rem; color: var(--white); margin-bottom: 1.25rem; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul a { font-size: 0.87rem; color: rgba(255,255,255,0.65); transition: var(--transition); }
+.footer-col ul a:hover { color: var(--gold-light); padding-left: 4px; }
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 0.6rem;
+}
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; }
+.footer-bottom-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+/* ===== FLOATING BUTTONS ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  width: 56px; height: 56px;
+  background: #25D366;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  z-index: 999;
+  transition: var(--transition);
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 42px; height: 42px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: var(--transition);
+}
+.back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top:hover { background: var(--green-dark); }
+
+/* ===== THERAPY RATES ===== */
+.therapy-rates {
+  display: grid;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--green-light);
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+.rate-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 2rem;
+  border-bottom: 1px solid var(--green-light);
+}
+.rate-row:last-child { border-bottom: none; }
+.rate-left { display: flex; align-items: center; gap: 1rem; }
+.rate-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.rate-name strong { display: block; color: var(--green-dark); font-size: 0.98rem; }
+.rate-name span { font-size: 0.8rem; color: var(--text-light); }
+.rate-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  flex-shrink: 0;
+}
+.rate-price-line { white-space: nowrap; }
+.rate-price strong { color: var(--green-dark); font-size: 0.98rem; }
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.benefit-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--green-light);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+}
+.benefit-item .tick {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--green); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; flex-shrink: 0; margin-top: 0.1rem;
+}
+.benefit-item p { font-size: 0.85rem; color: var(--text-mid); }
+
+.subsection-label {
+  text-align: center;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  margin: 3.5rem 0 1.75rem;
+}
+.home-visit-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  max-width: 500px;
+  margin: 0.75rem auto 0;
+}
+
+/* ===== PACKAGES ===== */
+.packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; }
+.package-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--green-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.package-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+.package-head { padding: 1.75rem 1.75rem 1.25rem; text-align: center; border-bottom: 1px solid var(--green-light); }
+.package-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--green-dark); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-weight: 700;
+  margin: 0 auto 0.85rem;
+}
+.package-head h3 { color: var(--green-dark); font-size: 1.15rem; margin-bottom: 0.25rem; }
+.package-duration { font-size: 0.8rem; color: var(--text-light); }
+.package-list { list-style: none; padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+.package-list li { font-size: 0.85rem; color: var(--text-mid); display: flex; gap: 0.5rem; align-items: flex-start; }
+.package-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+.package-foot { padding: 1.5rem 1.75rem; border-top: 1px solid var(--green-light); text-align: center; background: var(--bg-light); }
+.package-price { font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; color: var(--green-dark); margin-bottom: 0.9rem; }
+.package-banner {
+  text-align: center;
+  background: var(--green-dark);
+  color: var(--white);
+  border-radius: 50px;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 2.5rem auto 0;
+}
+.package-tagline {
+  text-align: center;
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--green-dark);
+  margin-top: 1.25rem;
+}
+
+/* ===== OIL SHEEN HOVER SWEEP ===== */
+.service-card::after,
+.package-card::after,
+.treatment-card::after,
+.why-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -65%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(245,230,184,0.15), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.85s var(--ease-oil);
+  pointer-events: none;
+  z-index: 1;
+}
+.service-card:hover::after,
+.package-card:hover::after,
+.treatment-card:hover::after,
+.why-item:hover::after { left: 135%; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .about-grid, .featured-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image-wrap { max-width: 500px; margin: 0 auto; }
+  .featured-visual  { max-width: 560px; margin: 0 auto; width: 100%; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid  { grid-template-columns: 1fr 1fr; }
+  .doctor-feature { grid-template-columns: 1fr; max-width: 560px; }
+  .doctor-img { min-height: 320px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 3.5rem 0; }
+  .topbar-inner { flex-direction: column; gap: 0.3rem; text-align: center; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    z-index: 1000;
+    padding: 2rem;
+    margin-left: 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1.15rem; padding: 0.6rem 1.5rem; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .hero { min-height: 80vh; }
+  .hero-content { padding: 3rem 1.5rem; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .hero-stats { flex-wrap: wrap; gap: 0; width: 100%; }
+  .stat-divider { display: none; }
+  .stat { padding: 0.5rem 0.75rem; }
+  .stat strong { font-size: 1.3rem; }
+  .about-img-main img { height: 320px; }
+  .featured-img { height: 340px; }
+  .featured-img span { font-size: 5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 1.75rem; }
+  .doctor-info { padding: 1.75rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .rate-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .rate-price { text-align: left; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.5rem; }
+  .treatments-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom-inner { flex-direction: column; text-align: center; }
+  .whatsapp-float { width: 48px; height: 48px; bottom: 4.5rem; right: 1rem; }
+  .back-to-top { width: 38px; height: 38px; right: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .oil-blob { display: none; }
+  .oil-cursor { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .marquee-track { animation: none; }
+  .oil-cursor { display: none !important; }
+  .scroll-progress { animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="oil-cursor" id="oilCursor" aria-hidden="true"></div>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>📞 <a href="tel:+919876543210">+91 98765 43210</a></span>
+      <span>✉️ <a href="mailto:info@doctorsayurcare.com">info@doctorsayurcare.com</a></span>
+      <span>⏰ Mon–Sat: 9 AM – 7 PM</span>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">
+        <div class="logo-mark">🌿</div>
+        <div class="logo-text">
+          <span class="logo-main">Doctors <span class="accent">Ayurcare</span></span>
+        </div>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#therapies">Therapies</a>
+        <a href="#postpartum">Postpartum Care</a>
+        <a href="#packages">Packages</a>
+        <a href="#doctors">Doctor</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary nav-cta">Book Appointment</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-badge">🌿 Classical Ayurveda for Every Stage of Life</p>
+      <h1>Complete Ayurvedic Care,<br /><span class="accent">Deep Care for New Mothers</span></h1>
+      <p class="hero-desc">From everyday therapies like Abhyangam and Kizhi to our dedicated Prasava Raksha postpartum program, every plan at Doctors Ayurcare is doctor-led — at our centre or at your home.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book Free Consultation</a>
+        <a href="#therapies" class="btn btn-outline">Explore Therapies</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>15+</strong><span>Years Experience</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>5,000+</strong><span>Patients Treated</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>30+</strong><span>Therapies</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>100%</strong><span>Natural</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <a href="#about" aria-label="Scroll to About"><span class="scroll-dot"></span></a>
+    </div>
+    <div class="oil-blob" style="width:220px;height:220px;top:10%;right:8%;animation-delay:0s;"></div>
+    <div class="oil-blob" style="width:140px;height:140px;bottom:14%;right:22%;animation-delay:2.5s;"></div>
+  </section>
+
+  <!-- ===== WAVE: HERO → MARQUEE ===== -->
+  <div class="wave-divider" style="color: var(--gold);" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M0,32 C180,70 340,4 520,30 C700,56 780,10 960,26 C1140,42 1260,4 1440,36 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ===== MARQUEE STRIP ===== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>🌿 Abhyangam</span>
+      <span>🌸 Prasava Raksha</span>
+      <span>🌺 Podi Kizhi</span>
+      <span>🌿 Postpartum Abhyanga</span>
+      <span>🌺 Ela Kizhi</span>
+      <span>🌸 Kati Vasthi</span>
+      <span>🌿 Nasya</span>
+      <span>🌺 Uterine Care (Uttara Basti)</span>
+      <span>🌸 C-Section Recovery</span>
+      <span>🌿 Abhyangam</span>
+      <span>🌸 Prasava Raksha</span>
+      <span>🌺 Podi Kizhi</span>
+      <span>🌿 Postpartum Abhyanga</span>
+      <span>🌺 Ela Kizhi</span>
+      <span>🌸 Kati Vasthi</span>
+      <span>🌿 Nasya</span>
+      <span>🌺 Uterine Care (Uttara Basti)</span>
+      <span>🌸 C-Section Recovery</span>
+    </div>
+  </div>
+
+  <!-- ===== WAVE: MARQUEE → ABOUT ===== -->
+  <div class="wave-divider wd-lg" style="color: var(--white);" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M0,20 C160,60 320,80 500,54 C680,28 820,64 1000,50 C1180,36 1300,66 1440,44 L1440,90 L0,90 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section about" id="about">
+    <div class="container about-grid">
+      <div class="about-image-wrap">
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80" alt="Ayurvedic doctor in consultation with a patient" />
+        </div>
+        <div class="about-img-badge">
+          <span class="badge-num">15+</span>
+          <span class="badge-txt">Years of Healing</span>
+        </div>
+        <div class="about-leaf about-leaf-1">🍃</div>
+        <div class="about-leaf about-leaf-2">🌿</div>
+        <div class="oil-blob" style="width:160px;height:160px;top:-8%;right:-6%;animation-delay:1s;"></div>
+      </div>
+      <div class="about-content">
+        <p class="section-label">About Us</p>
+        <h2>Ayurveda You Can Trust, <span class="accent">For Every Stage</span></h2>
+        <p>At <strong>Doctors Ayurcare</strong>, we practise classical Ayurveda across the full range of therapies — Abhyangam, Kizhi, Nasya, Kati Vasthi — for pain, stress, fatigue, and everyday wellness. Every plan is designed and reviewed by our doctor, not handed off to a fixed protocol.</p>
+        <p>Within that, postpartum recovery is where we go deepest. The weeks after childbirth shape a woman's health for years, and our Prasava Raksha program gives new mothers a dedicated, week-by-week recovery plan that most clinics don't offer.</p>
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon">🎓</div>
+            <div>
+              <strong>Doctor-Led Care</strong>
+              <p>Every plan — a single therapy or a full postpartum program — is designed and reviewed personally by our doctor.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌱</div>
+            <div>
+              <strong>Safe &amp; Personalised</strong>
+              <p>Herbs and oils are chosen for your condition, and adjusted for pregnancy, breastfeeding, or sensitivities.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🏠</div>
+            <div>
+              <strong>Home Visit Programs Available</strong>
+              <p>Therapies brought to your home — for new mothers, busy professionals, or anyone who prefers to recover in comfort.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#therapies" class="btn btn-primary">Explore Our Therapies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL AYURVEDIC THERAPIES ===== -->
+  <section class="section therapies" id="therapies">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">All Ayurvedic Therapies</p>
+        <h2>Classical Therapies &amp; <span class="accent">Rates</span></h2>
+        <p class="section-desc">Individual Ayurvedic therapies for pain, stress, fatigue, and everyday wellbeing — each priced clearly, with home visits available.</p>
+      </div>
+
+      <div class="therapy-rates">
+        <div class="rate-row">
+          <div class="rate-left">
+            <span class="rate-icon">🌿</span>
+            <div class="rate-name"><strong>Abhyangam</strong><span>Full-body herbal oil massage</span></div>
+          </div>
+          <div class="rate-price"><span class="rate-price-line">60 min <strong>₹2,500</strong></span><span class="rate-price-line">90 min <strong>₹3,000</strong></span></div>
+        </div>
+        <div class="rate-row">
+          <div class="rate-left">
+            <span class="rate-icon">🌾</span>
+            <div class="rate-name"><strong>Podi Kizhi</strong><span>Herbal powder bolus massage</span></div>
+          </div>
+          <div class="rate-price"><span class="rate-price-line">60 min <strong>₹3,000</strong></span><span class="rate-price-line">90 min <strong>₹3,500</strong></span></div>
+        </div>
+        <div class="rate-row">
+          <div class="rate-left">
+            <span class="rate-icon">🍃</span>
+            <div class="rate-name"><strong>Ela Kizhi</strong><span>Herbal leaf bolus massage</span></div>
+          </div>
+          <div class="rate-price"><span class="rate-price-line">60 min <strong>₹3,000</strong></span><span class="rate-price-line">90 min <strong>₹3,500</strong></span></div>
+        </div>
+        <div class="rate-row">
+          <div class="rate-left">
+            <span class="rate-icon">🦴</span>
+            <div class="rate-name"><strong>Kati Vasthi</strong><span>Warm oil pooling for the lower back</span></div>
+          </div>
+          <div class="rate-price"><strong>₹1,000</strong></div>
+        </div>
+        <div class="rate-row">
+          <div class="rate-left">
+            <span class="rate-icon">👃</span>
+            <div class="rate-name"><strong>Nasya</strong><span>Nasal therapy for head &amp; sinus congestion</span></div>
+          </div>
+          <div class="rate-price"><strong>₹500</strong></div>
+        </div>
+        <div class="rate-row">
+          <div class="rate-left">
+            <span class="rate-icon">💧</span>
+            <div class="rate-name"><strong>Pichu</strong><span>Medicated warm oil application</span></div>
+          </div>
+          <div class="rate-price"><strong>₹300</strong></div>
+        </div>
+        <div class="rate-row">
+          <div class="rate-left">
+            <span class="rate-icon">♨️</span>
+            <div class="rate-name"><strong>Upanaha Swedam</strong><span>Herbal poultice fomentation</span></div>
+          </div>
+          <div class="rate-price"><strong>₹1,000</strong></div>
+        </div>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-item"><span class="tick">✓</span><p>Improves blood circulation</p></div>
+        <div class="benefit-item"><span class="tick">✓</span><p>Boosts immunity</p></div>
+        <div class="benefit-item"><span class="tick">✓</span><p>Improves sleep quality</p></div>
+        <div class="benefit-item"><span class="tick">✓</span><p>Supports mental wellbeing</p></div>
+        <div class="benefit-item"><span class="tick">✓</span><p>Reduces joint &amp; muscle pain</p></div>
+        <div class="benefit-item"><span class="tick">✓</span><p>Aids digestion, removes toxins</p></div>
+      </div>
+
+      <h3 class="subsection-label">Home Care &amp; Special Programs</h3>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-body">
+            <span class="service-icon">💻</span>
+            <h3>Body Recharge — For Working Professionals</h3>
+            <p>Relief for the neck, shoulder, and leg strain of long desk hours, on a portable treatment bed at your home or office. Head &amp; Neck ₹1,500 · Foot &amp; Leg ₹1,500 · Whole Body ₹2,500.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-duration">Portable bed at your home</span>
+            <a href="#contact" class="card-link">Book now →</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-body">
+            <span class="service-icon">🌧️</span>
+            <h3>Karkidaka Chikitsa — Seasonal Rejuvenation</h3>
+            <p>A classical monsoon-season detox and immunity program, built around a doctor consultation, with experienced therapists visiting you at home for the full course.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-duration">Doctor-led · home visits</span>
+            <a href="#contact" class="card-link">Enquire →</a>
+          </div>
+        </div>
+      </div>
+      <p class="home-visit-note">🏠 Ayurvedic therapies delivered to your home — ask about home visits for any therapy above.</p>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section services bg-light" id="postpartum">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Postpartum Care</p>
+        <h2>Our <span class="accent">Postpartum Care Programs</span></h2>
+        <p class="section-desc">Where we specialise most: structured postpartum care built around your delivery type, your body, and your daily routine — as a full program or as individual therapies.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-body">
+            <span class="service-icon">💆</span>
+            <h3>Postpartum Abhyanga</h3>
+            <p>Warm medicated oil massage that eases body aches, restores muscle tone, and lifts postnatal fatigue — usually started from Day 5 after delivery.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-duration">⏱ 60–90 min</span>
+            <a href="#contact" class="card-link">Book now →</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-body">
+            <span class="service-icon">🌿</span>
+            <h3>Kizhi &amp; Njavara Kizhi</h3>
+            <p>Herbal bolus fomentation that relieves postpartum back pain, hip pain, and joint stiffness, and rebuilds muscles weakened through pregnancy and delivery.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-duration">⏱ 60 min</span>
+            <a href="#contact" class="card-link">Book now →</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-body">
+            <span class="service-icon">🫀</span>
+            <h3>Uterine Care (Uttara Basti)</h3>
+            <p>Uterine detox and toning with medicated herbal oils — supports involution, clears lochia, and helps prevent postpartum complications and prolapse.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-duration">⏱ 45 min</span>
+            <a href="#contact" class="card-link">Book now →</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-body">
+            <span class="service-icon">🛁</span>
+            <h3>Herbal Steam Bath (Kaya Seka)</h3>
+            <p>Daily medicated steam to reduce swelling, ease stiffness, and cleanse the postpartum body — one of the most restorative parts of the recovery routine.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-duration">⏱ 30 min</span>
+            <a href="#contact" class="card-link">Book now →</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-body">
+            <span class="service-icon">🍵</span>
+            <h3>Postpartum Nutrition</h3>
+            <p>Pathya Ahara — a healing diet plan of kanji, medicated ghee, and herbal kashayam, adjusted week by week to rebuild digestion and strength.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-duration">⏱ Ongoing plan</span>
+            <a href="#contact" class="card-link">Book now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED: PRASAVA RAKSHA ===== -->
+  <section class="section bg-cream" id="prasava">
+    <div class="container featured-grid">
+      <div class="featured-visual">
+        <div class="oil-blob" style="width:180px;height:180px;top:-10%;left:-8%;animation-delay:0.5s;"></div>
+        <div class="featured-img"><span>🌸</span></div>
+        <div class="featured-tag">Signature Program</div>
+        <div class="featured-badge">
+          <div class="badge-icon">🤱</div>
+          <div>
+            <strong>Prasava Raksha</strong>
+            <span class="badge-sub">Complete mother care after delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="featured-content">
+        <p class="section-label">After Pregnancy Care</p>
+        <h2>Prasava Raksha — <span class="accent">Healing the New Mother</span></h2>
+        <p class="section-desc" style="text-align:left">A guided recovery journey that brings every therapy together into one plan: body, hormones, digestion, and mood, looked after as a single process rather than separate problems.</p>
+        <div class="featured-list">
+          <div class="featured-item">
+            <div class="featured-dot">🛁</div>
+            <div>
+              <strong>Daily Herbal Steam &amp; Oil Therapy</strong>
+              <p>Medicated steam and warm oil work together to reduce swelling, relieve pain, and restore tissue strength.</p>
+            </div>
+          </div>
+          <div class="featured-item">
+            <div class="featured-dot">🌿</div>
+            <div>
+              <strong>Uterine Rejuvenation</strong>
+              <p>Internal herbal formulations and external oil therapy to restore the uterus, settle hormones, and speed healing.</p>
+            </div>
+          </div>
+          <div class="featured-item">
+            <div class="featured-dot">🧘</div>
+            <div>
+              <strong>Emotional Wellbeing</strong>
+              <p>Head therapies, Nasya, and gentle counselling to ease baby blues, anxiety, and low mood after delivery.</p>
+            </div>
+          </div>
+          <div class="featured-item">
+            <div class="featured-dot">🍵</div>
+            <div>
+              <strong>Customised Diet &amp; Nutrition</strong>
+              <p>A traditional postpartum diet plan prepared fresh, matched to your digestion and energy each week.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">Personalised plan</span>
+          <span class="chip">Home visits available</span>
+          <span class="chip">Safe while breastfeeding</span>
+        </div>
+        <a href="#contact" class="btn btn-primary">Enquire About Prasava Raksha</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PACKAGES ===== -->
+  <section class="section packages bg-light" id="packages">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Postpartum Packages</p>
+        <h2>Choose Your <span class="accent">Prasava Raksha Package</span></h2>
+        <p class="section-desc">Four structured packages, from a focused 7-day reset to a complete 21-day recovery journey — all doctor-supervised and available at home.</p>
+      </div>
+      <div class="packages-grid">
+        <div class="package-card">
+          <div class="package-head">
+            <div class="package-num">1</div>
+            <h3>Basic Package</h3>
+            <p class="package-duration">7 Days</p>
+          </div>
+          <ul class="package-list">
+            <li>Abhyangam (oil massage)</li>
+            <li>Podi Kizhi</li>
+            <li>Facial / Mukhalepam</li>
+            <li>Kesha Dhoopanam (hair fumigation)</li>
+            <li>Vedhukuli (herbal bath)</li>
+            <li>Doctor consultation</li>
+          </ul>
+          <div class="package-foot">
+            <div class="package-price">₹10,000</div>
+            <a href="#contact" class="btn btn-outline-green btn-sm">Enquire Now</a>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-head">
+            <div class="package-num">2</div>
+            <h3>Golden Package</h3>
+            <p class="package-duration">14 Days · Alternate Days</p>
+          </div>
+          <ul class="package-list">
+            <li>Abhyangam</li>
+            <li>Podi Kizhi</li>
+            <li>Facial / Mukhalepam</li>
+            <li>Pranayama</li>
+            <li>Dietitian / psychologist consultation</li>
+            <li>Vedhukuli</li>
+            <li>Kesha Dhoopanam</li>
+            <li>Doctor consultation</li>
+          </ul>
+          <div class="package-foot">
+            <div class="package-price">₹14,000</div>
+            <a href="#contact" class="btn btn-outline-green btn-sm">Enquire Now</a>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-head">
+            <div class="package-num">3</div>
+            <h3>Golden Plus</h3>
+            <p class="package-duration">14 Days · Continuous</p>
+          </div>
+          <ul class="package-list">
+            <li>Abhyangam</li>
+            <li>Podi Kizhi</li>
+            <li>Facial / Mukhalepam</li>
+            <li>Body scrub</li>
+            <li>Dhanyamla Dhara</li>
+            <li>Kesha Dhoopanam</li>
+            <li>Vedhukuli</li>
+            <li>Doctor consultation</li>
+            <li>Dietitian / psychologist consultation</li>
+          </ul>
+          <div class="package-foot">
+            <div class="package-price">₹18,000</div>
+            <a href="#contact" class="btn btn-outline-green btn-sm">Enquire Now</a>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-head">
+            <div class="package-num">4</div>
+            <h3>Premium Package</h3>
+            <p class="package-duration">21 Days</p>
+          </div>
+          <ul class="package-list">
+            <li>Abhyangam</li>
+            <li>Podi Kizhi</li>
+            <li>Facial / Mukhalepam</li>
+            <li>Dhanyamla Dhara</li>
+            <li>Aroma therapy</li>
+            <li>Sandalwood scrub</li>
+            <li>Pranayama</li>
+            <li>Music therapy</li>
+            <li>Vedhukuli</li>
+            <li>Kesha Dhoopanam</li>
+            <li>Psychologist consultation</li>
+            <li>Dietitian consultation</li>
+            <li>Doctor consultation</li>
+          </ul>
+          <div class="package-foot">
+            <div class="package-price">₹25,000</div>
+            <a href="#contact" class="btn btn-outline-green btn-sm">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+      <p class="package-banner">Classical Ayurveda · Doctor Supervised · Safe Results</p>
+      <p class="package-tagline">"Complete postpartum care, now available at your home."</p>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section why-us">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Why Choose Us</p>
+        <h2>The <span class="accent">Doctors Ayurcare</span> Difference</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">🩺</div>
+          <h3>Delivery-Type Specific Plans</h3>
+          <p>Separate protocols for normal delivery and C-section — timing, therapy intensity, and diet tailored to how you delivered and how you are healing.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🏠</div>
+          <h3>Home Visit Service</h3>
+          <p>Our therapists come to you for daily therapies, so you recover in your own space instead of travelling with a small baby.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">👩‍⚕️</div>
+          <h3>Women Therapists Only</h3>
+          <p>All postpartum therapies are carried out by trained women therapists, supervised directly by our doctor.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🌾</div>
+          <h3>Medicines Prepared In-House</h3>
+          <p>Oils, kashayam, and ghee prepared fresh from herbs we source ourselves — nothing off the shelf, nothing unsuited to nursing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONDITIONS ===== -->
+  <section class="section treatments bg-light" id="treatments">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Speciality Treatments</p>
+        <h2>Postpartum Conditions <span class="accent">We Treat</span></h2>
+        <p class="section-desc">We address the physical and emotional challenges new mothers face — naturally, safely, and with therapies chosen to suit breastfeeding.</p>
+      </div>
+      <div class="treatments-grid">
+        <div class="treatment-card">
+          <div class="treatment-icon">🫀</div>
+          <h4>Uterine Recovery</h4>
+          <p>Involution, lochia clearance, prolapse prevention</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">🦴</div>
+          <h4>Back &amp; Joint Pain</h4>
+          <p>Postpartum backache, hip pain, pelvic girdle pain</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">🌙</div>
+          <h4>Postpartum Depression</h4>
+          <p>Baby blues, anxiety, mood swings, exhaustion</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">⚖️</div>
+          <h4>Post-Pregnancy Weight</h4>
+          <p>Safe postpartum weight recovery and toning</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">💧</div>
+          <h4>Hormonal Rebalance</h4>
+          <p>Thyroid, oestrogen, progesterone restoration</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">💪</div>
+          <h4>Pelvic Floor Healing</h4>
+          <p>Pelvic weakness, diastasis recti, core recovery</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">😴</div>
+          <h4>Sleep &amp; Fatigue</h4>
+          <p>Insomnia, extreme tiredness, adrenal fatigue</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">🌸</div>
+          <h4>C-Section Recovery</h4>
+          <p>Wound healing, scar reduction, internal repair</p>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">🌿</div>
+          <h4>Postpartum Nutrition</h4>
+          <p>Pathya Ahara — healing diet plans for new mothers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DOCTOR ===== -->
+  <section class="section doctors" id="doctors">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Team</p>
+        <h2>Meet Your <span class="accent">Doctor</span></h2>
+        <p class="section-desc">One doctor oversees every plan at Doctors Ayurcare — from individual therapies to full postpartum recovery — so your care stays personal and consistent.</p>
+      </div>
+      <div class="doctor-feature">
+        <div class="doctor-img">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Dr. Deepthi S G" />
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Deepthi S G</h3>
+          <p class="doctor-title">Chief Physician &amp; Postpartum Specialist</p>
+          <p class="doctor-spec">BAMS · Postpartum &amp; Women's Health · 16 Years Experience</p>
+          <p class="doctor-desc">Dr. Deepthi treats the full range of Ayurvedic therapies — pain, stress, fatigue — and has spent her career specialising in postpartum recovery: hormonal restoration and uterine care for mothers after both normal and C-section deliveries. She assesses every patient personally and adjusts the plan as recovery progresses.</p>
+          <ul class="doctor-points">
+            <li><span class="tick">✓</span>Individual assessment and weekly plan review</li>
+            <li><span class="tick">✓</span>Protocols adapted for normal and C-section delivery</li>
+            <li><span class="tick">✓</span>Medicines chosen to be safe while breastfeeding</li>
+            <li><span class="tick">✓</span>In-person, online, and home-visit consultations</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WAVE: DOCTOR → TESTIMONIALS ===== -->
+  <div class="wave-divider wd-lg" style="color: var(--green-dark);" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M0,46 C200,10 360,72 560,40 C760,8 900,66 1100,38 C1260,16 1360,54 1440,30 L1440,90 L0,90 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section testimonials bg-green">
+    <div class="container">
+      <div class="section-header light">
+        <p class="section-label">Testimonials</p>
+        <h2>What Our Patients <span class="accent-light">Say About Us</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"After my C-section I was completely drained and in pain. The daily Abhyanga, herbal kashayam, and diet plan brought me back to life. I healed faster than my doctors expected."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SP</div>
+            <div>
+              <strong>Sneha Patel</strong>
+              <span>C-Section Recovery</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Ten years at a desk left my neck and shoulders in constant knots. Two home sessions of Abhyangam and Kati Vasthi and I slept through the night without pain for the first time in years."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div>
+              <strong>Anoop Menon</strong>
+              <span>IT Professional · Body Recharge</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The low mood after delivery hit me hard. The head therapies and counselling, along with someone actually checking on me each week, truly saved me. I am a happy, energetic mother again."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">DM</div>
+            <div>
+              <strong>Divya Menon</strong>
+              <span>Postpartum Depression Care</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WAVE: TESTIMONIALS → CONTACT ===== -->
+  <div class="wave-divider wd-lg" style="color: var(--bg-light);" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M0,34 C170,68 330,6 520,32 C710,58 840,14 1030,30 C1220,46 1330,10 1440,38 L1440,90 L0,90 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section contact bg-light" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Get In Touch</p>
+        <h2>Book Your <span class="accent">Free Consultation</span></h2>
+        <p class="section-desc">Start your healing journey today. Send us your details and our team will reach out within 24 hours to confirm your appointment.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="mode">Consultation Mode</label>
+                <select id="mode" name="mode">
+                  <option value="">Select a mode</option>
+                  <option>In-person consultation</option>
+                  <option>Online video consultation</option>
+                  <option>Home visit</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="condition">Health Concern *</label>
+                <select id="condition" name="condition" required>
+                  <option value="">Select your concern</option>
+                  <optgroup label="General Ayurveda">
+                    <option>General Ayurveda Consultation</option>
+                    <option>Abhyangam / Full Body Massage</option>
+                    <option>Kizhi Therapy</option>
+                    <option>Kati Vasthi (Back Pain)</option>
+                    <option>Nasya / Sinus Therapy</option>
+                    <option>Body Recharge (For Professionals)</option>
+                    <option>Karkidaka Chikitsa</option>
+                  </optgroup>
+                  <optgroup label="Postpartum Care">
+                    <option>Prasava Raksha (Full Postpartum Program)</option>
+                    <option>Postpartum Body Massage (Abhyanga)</option>
+                    <option>C-Section Recovery</option>
+                    <option>Uterine Care &amp; Recovery</option>
+                    <option>Postpartum Back &amp; Joint Pain</option>
+                    <option>Postpartum Depression / Anxiety</option>
+                    <option>Post-Pregnancy Weight Recovery</option>
+                    <option>Pelvic Floor Rehabilitation</option>
+                  </optgroup>
+                  <option>Other / General Enquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="package">Preferred Package (if any)</label>
+                <select id="package" name="package">
+                  <option value="">Not applicable</option>
+                  <option>Basic Package (7 Days) — ₹10,000</option>
+                  <option>Golden Package (14 Days) — ₹14,000</option>
+                  <option>Golden Plus (14 Days) — ₹18,000</option>
+                  <option>Premium Package (21 Days) — ₹25,000</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Additional Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your condition or what you're looking for..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Appointment Request</button>
+            <p class="form-note">🔒 Your information is private and confidential.</p>
+          </form>
+          <div class="form-success" id="formSuccess" style="display:none">
+            <div class="success-icon">✅</div>
+            <h3>Request received</h3>
+            <p>Thank you. Our team will contact you within 24 hours to confirm your appointment.</p>
+          </div>
+        </div>
+        <div class="contact-info">
+          <div class="info-card">
+            <h3>Contact Information</h3>
+            <div class="info-item">
+              <span class="info-icon">📞</span>
+              <div>
+                <strong>Phone</strong>
+                <p><a href="tel:+919876543210">+91 98765 43210</a><br /><a href="tel:+918012345678">+91 80123 45678</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">💬</span>
+              <div>
+                <strong>WhatsApp</strong>
+                <p><a href="https://wa.me/919876543210" target="_blank" rel="noopener">Message us on WhatsApp</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <p><a href="mailto:info@doctorsayurcare.com">info@doctorsayurcare.com</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">⏰</span>
+              <div>
+                <strong>Working Hours</strong>
+                <p>Monday – Saturday: 9:00 AM – 7:00 PM<br />Sunday: 10:00 AM – 2:00 PM (emergency)</p>
+              </div>
+            </div>
+          </div>
+          <div class="callout">
+            <h4>Consulting from anywhere</h4>
+            <p>Online video consultations are available for mothers who cannot travel, with medicines and diet plans sent to you.</p>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Start on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WAVE: CONTACT → FOOTER ===== -->
+  <div class="wave-divider wd-lg" style="color: var(--green-dark);" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M0,50 C190,14 350,76 550,44 C750,12 890,70 1090,42 C1250,20 1350,58 1440,34 L1440,90 L0,90 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text">
+            <span class="logo-main">Doctors <span class="accent">Ayurcare</span></span>
+            <span class="logo-sub">Ayurvedic Therapies &amp; Postpartum Care</span>
+          </div>
+          <p>Doctor-led Ayurvedic care for everyday wellness, with specialised Prasava Raksha programs for postpartum recovery.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="YouTube">yt</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#therapies">Therapies</a></li>
+            <li><a href="#postpartum">Postpartum Care</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#doctors">Our Doctor</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular Therapies</h4>
+          <ul>
+            <li><a href="#therapies">Abhyangam</a></li>
+            <li><a href="#therapies">Kizhi Therapy</a></li>
+            <li><a href="#therapies">Kati Vasthi</a></li>
+            <li><a href="#prasava">Prasava Raksha</a></li>
+            <li><a href="#postpartum">Postpartum Abhyanga</a></li>
+            <li><a href="#postpartum">Uterine Care</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Working Hours</h4>
+          <ul class="hours-list">
+            <li><span>Mon – Fri</span><span>9 AM – 7 PM</span></li>
+            <li><span>Saturday</span><span>9 AM – 5 PM</span></li>
+            <li><span>Sunday</span><span>10 AM – 2 PM</span></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary btn-sm mt-1">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Doctors Ayurcare. All rights reserved.</p>
+        <p>Designed with 🌿 for whole-body wellness</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+// ===== NAVBAR SCROLL EFFECT + SCROLL PROGRESS ("OIL FILL") =====
+const navbar = document.getElementById('navbar');
+const backToTopBtn = document.getElementById('backToTop');
+const scrollProgress = document.getElementById('scrollProgress');
+let scrollTicking = false;
+// Shared smooth-scroll dispatcher: assigned below by the fluid wheel-scroll
+// engine when it initializes, so the back-to-top button and in-page anchor
+// links glide with the same viscous motion instead of fighting it.
+let oilScrollTo = null;
+
+function onScrollFrame() {
+  const y = window.scrollY;
+  navbar.classList.toggle('scrolled', y > 50);
+  backToTopBtn.classList.toggle('visible', y > 400);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0;
+  scrollProgress.style.width = pct + '%';
+  scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(onScrollFrame);
+    scrollTicking = true;
+  }
+}, { passive: true });
+onScrollFrame();
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+
+function closeMenu() {
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  navLinks.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  const isOpen = hamburger.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', String(isOpen));
+  navLinks.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+// ===== ACTIVE NAV LINK ON SCROLL =====
+const sections   = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { threshold: 0.35 });
+
+sections.forEach(s => observer.observe(s));
+
+// ===== BACK TO TOP =====
+backToTopBtn.addEventListener('click', () => {
+  if (oilScrollTo) oilScrollTo(0);
+  else window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== IN-PAGE ANCHOR NAVIGATION (glides through the fluid engine when active) =====
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const hash = link.getAttribute('href');
+  if (!hash || hash.length < 2) return;
+  let targetEl;
+  try { targetEl = document.querySelector(hash); } catch (err) { return; }
+  if (!targetEl) return;
+  e.preventDefault();
+  const navH = navbar.offsetHeight || 0;
+  const y = Math.max(0, targetEl.getBoundingClientRect().top + window.scrollY - navH - 8);
+  if (oilScrollTo) oilScrollTo(y);
+  else window.scrollTo({ top: y, behavior: 'smooth' });
+  if (history.pushState) history.pushState(null, '', hash);
+});
+
+// ===== CONTACT FORM =====
+const form        = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  setTimeout(() => {
+    form.style.display = 'none';
+    formSuccess.style.display = 'block';
+  }, 1200);
+});
+
+// ===== SCROLL REVEAL (liquid settle) =====
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll(
+  '.service-card, .treatment-card, .doctor-feature, .testimonial-card, .why-item, .feature-item, .featured-item, .package-card'
+);
+
+if (!prefersReduced) {
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = (i * 0.06) + 's';
+        entry.target.classList.add('revealed');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px) scale(0.97)';
+    el.style.filter = 'blur(6px)';
+    el.style.transition = 'opacity 0.8s var(--ease-oil, cubic-bezier(0.16,1,0.3,1)), transform 0.8s var(--ease-oil, cubic-bezier(0.16,1,0.3,1)), filter 0.8s var(--ease-oil, cubic-bezier(0.16,1,0.3,1))';
+    revealObs.observe(el);
+  });
+
+  const revealStyle = document.createElement('style');
+  revealStyle.textContent = '.revealed { opacity: 1 !important; transform: none !important; filter: blur(0) !important; }';
+  document.head.appendChild(revealStyle);
+}
+
+// ===== VISCOUS WHEEL SCROLL — "oil flowing" scroll feel (desktop only) =====
+(function initOilScroll() {
+  if (prefersReduced) return;
+  if (window.matchMedia('(pointer: coarse)').matches) return; // leave native touch momentum alone
+
+  const damping = 0.1; // lower = heavier / more viscous drag
+  let targetY = window.scrollY;
+  let currentY = window.scrollY;
+  let animating = false;
+
+  function isWithinScrollable(el) {
+    while (el && el !== document.body && el !== document.documentElement) {
+      if (el.scrollHeight > el.clientHeight) {
+        const overflowY = getComputedStyle(el).overflowY;
+        if (overflowY === 'auto' || overflowY === 'scroll') return true;
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  function clamp() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    targetY = Math.min(Math.max(targetY, 0), Math.max(max, 0));
+  }
+
+  function step() {
+    // If scrollY has drifted away from where we last set it (e.g. a keyboard
+    // scroll or a scrollbar drag took over), yield instead of fighting it
+    // for control of the scrollbar.
+    if (Math.abs(window.scrollY - currentY) > 2) {
+      targetY = window.scrollY;
+      currentY = window.scrollY;
+      animating = false;
+      return;
+    }
+    currentY += (targetY - currentY) * damping;
+    // behavior must be explicitly 'instant', not 'auto' — 'auto' defers to the
+    // page's CSS `scroll-behavior: smooth`, which would make every one of these
+    // per-frame snaps its own slow native animation and fight this rAF loop.
+    if (Math.abs(targetY - currentY) < 0.4) {
+      currentY = targetY;
+      window.scrollTo({ top: currentY, left: 0, behavior: 'instant' });
+      animating = false;
+      return;
+    }
+    window.scrollTo({ top: currentY, left: 0, behavior: 'instant' });
+    requestAnimationFrame(step);
+  }
+
+  function startLoop() {
+    if (!animating) {
+      animating = true;
+      requestAnimationFrame(step);
+    }
+  }
+
+  window.addEventListener('wheel', (e) => {
+    if (isWithinScrollable(e.target)) return;
+    e.preventDefault();
+    targetY += e.deltaY;
+    clamp();
+    startLoop();
+  }, { passive: false });
+
+  // Re-sync target after non-wheel scrolling (keyboard, scrollbar drag)
+  let resyncTimer;
+  window.addEventListener('scroll', () => {
+    if (animating) return;
+    clearTimeout(resyncTimer);
+    resyncTimer = setTimeout(() => {
+      targetY = window.scrollY;
+      currentY = window.scrollY;
+    }, 80);
+  }, { passive: true });
+
+  window.addEventListener('resize', clamp);
+
+  // Expose a single entry point so back-to-top / anchor links share this engine
+  // instead of racing it with their own native smooth-scroll calls.
+  oilScrollTo = function (y) {
+    targetY = y;
+    clamp();
+    if (!animating) currentY = window.scrollY;
+    startLoop();
+  };
+})();
+
+// ===== OIL-DROP CURSOR TRAIL (hero only, desktop, motion-safe) =====
+(function initOilCursor() {
+  if (prefersReduced) return;
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const cursor = document.getElementById('oilCursor');
+  const hero = document.getElementById('home');
+  if (!cursor || !hero) return;
+
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  let raf = null;
+
+  function loop() {
+    cx += (mx - cx) * 0.14;
+    cy += (my - cy) * 0.14;
+    cursor.style.transform = `translate(${cx - 17}px, ${cy - 17}px)`;
+    raf = requestAnimationFrame(loop);
+  }
+
+  hero.addEventListener('mouseenter', () => {
+    cursor.classList.add('active');
+    if (!raf) raf = requestAnimationFrame(loop);
+  });
+  hero.addEventListener('mouseleave', () => {
+    cursor.classList.remove('active');
+  });
+  hero.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+  });
+})();
+</script>
+</body>
+</html>
